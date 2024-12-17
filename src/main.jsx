@@ -17,7 +17,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/shop",
-        element: <Shop addToCart={App.addToCart} />
+        element: <Shop />
       }
     ]
   }
