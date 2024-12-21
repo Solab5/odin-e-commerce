@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useOutletContext } from "react-router-dom";
+import styles from './Shop.module.css'
     
 function Shop() {
     const { addToCart } = useOutletContext();
@@ -37,27 +38,18 @@ function Shop() {
       return <div>Error loading products: {error.message}</div>;
     }
     return (
-        <div>
-            <h2>Our Products</h2>
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <div className={styles.container}>
+            <h2 >OUR PRODUCTS</h2>
+            <div className={styles.productsGrid}>
               {products.map(product => (
                   <div 
                   key={product.id}
-                  style={{
-                    border: '1px solid #ddd',
-                    margin: '10px',
-                    padding: '10px',
-                    width: '200px'
-                  }}
+                  className={styles.productCard}
                   > 
                   <img
                   src={product.image}
                   alt={product.title}
-                  style={{
-                    maxWidth: '100%',
-                    height: '200px',
-                    objectFit: 'contain'
-                  }}
+                  className={styles.productImage}
                   />
                       <h3>{product.title}</h3>
                       <p>${product.price}</p>

@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "Aeonik";
+    src: url("./assets/fonts/AeonikTRIAL-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Aeonik";
+    src: url("./assets/fonts/AeonikTRIAL-Bold.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Aeonik";
+    src: url("./assets/fonts/AeonikTRIAL-Light.otf") format("opentype");
+    font-weight: normal;
+    font-style: light;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #f9f9f9;
+    background-image: radial-gradient(circle, #e0e0e0 1px, transparent 1px);
+    background-size: 10px 10px;
+    font-family: "Aeonik", sans-serif;
+}
+
