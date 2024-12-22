@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       <Navbar cartItemCount={cartItems.length} />
-     <Outlet context={{ addToCart }} />
+     <Outlet context={{ addToCart, cartItems }} />
     </>
   )
 }

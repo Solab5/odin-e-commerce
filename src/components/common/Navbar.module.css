@@ -1,14 +1,22 @@
+.navContainer {
+    display: flex;
+}
+
+.logo {
+    
+}
+
 .navbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px 5px;
+    padding: 5px 20px;
     background-color: white;
     border: 1px solid gray;
     color: black;
     border-radius: 45px;
     text-transform: uppercase;
-    max-width: 300px;
+    max-width: 400px;
     font-size: 16px;
     margin-left: auto;
 
@@ -26,11 +34,24 @@
 }
 
 .link:hover {
-    color: rgb(15, 88, 215);
+    color: #07a9f4;
 }
 
 .cartInfo {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.checkoutButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.1rem 0.5rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.checkoutButton:hover {
+    background-color: #07a9f4;
 }

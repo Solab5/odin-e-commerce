@@ -4,16 +4,19 @@ import styles from './Navbar.module.css'
 
 function Navbar({ cartItemCount }) {
     return (
-        <nav className={styles.navbar}>
-           <div className={styles.navLinks}> 
-                <Link to="/" className={styles.link}>Home</Link>
-                <Link to="/shop" className={styles.link}>Shop</Link>
-                <div className={styles.cartInfo}>
-                    <span> Cart: {cartItemCount}</span>
-
+        <div className={styles.navContainer}>
+            <div className={styles.logo}>MY STORE </div>
+            <nav className={styles.navbar}>
+            <div className={styles.navLinks}> 
+                    <Link to="/" className={styles.link}>Home</Link>
+                    <Link to="/shop" className={styles.link}>Shop</Link>
+                    <div className={styles.cartInfo}>
+                        <span> Cart: {cartItemCount}</span>
+                        <Link to="/cart" className={styles.checkoutButton}>Checkout</Link>
                     </div>
-            </div>
+                </div>
         </nav>
+        </div>
     );
 }
 

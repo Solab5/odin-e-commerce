@@ -39,7 +39,7 @@ function Shop() {
     }
     return (
         <div className={styles.container}>
-            <h2 >OUR PRODUCTS</h2>
+            <h2 > Check out our products ... </h2>
             <div className={styles.productsGrid}>
               {products.map(product => (
                   <div 
