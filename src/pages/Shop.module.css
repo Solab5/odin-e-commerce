@@ -25,3 +25,51 @@
     height: 200px;
     object-fit: contain;
 }
+
+.productTitle {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.productPrice {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.quantityControl {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.quantityButton {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.quantityInput {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.addToCartButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    /* margin-bottom: auto; */
+    cursor: pointer;
+}
+
+.addToCartButton:hover {
+    background-color: #45a049;
+}

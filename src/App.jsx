@@ -16,7 +16,7 @@ function App() {
         : item
       ))
     } else {
-      setCartItems([...cartItems, {...product, quantity: 1}])
+      setCartItems([...cartItems, {...product, quantity: product.quantity}])
     }
   }
 

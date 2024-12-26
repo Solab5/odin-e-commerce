@@ -7,6 +7,7 @@ function Shop() {
     const [loading, setLoading] = useState(true); 
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(null);
+    const [quantities, setQuantities] = useState({})
 
     useEffect(() => {
       fetch('https://fakestoreapi.com/products')
@@ -17,18 +18,47 @@ function Shop() {
         return response.json();
       })
       .then(data => {
-        const productsWithQuantity = data.map(product => ({
-          ...product, quantity: 0
-        }));
-        setProducts(productsWithQuantity);
+        setProducts(data);
+        const initialQuantities = {};
+        data.forEach(product => {
+          initialQuantities[product.id] = 1;
+        });
+        setQuantities(initialQuantities);
         setLoading(false);
       })
       .catch(error => {
-        console.error('Error fetching products:', error);
+        console.error('Error:', error);
         setError(error);
         setLoading(false);
       });
     }, []);
+
+    const handleQuantityChange = (productId, value) => {
+      const newValue = Math.max(1, parseInt(value) || 1);
+      setQuantities(prev => ({
+        ...prev, 
+        [productId]: newValue
+      }));
+    };
+
+    const incrementQuantity = (productId) => {
+      setQuantities(prev => ({
+        ...prev,
+        [productId]: prev[productId] + 1
+      }));
+    };
+
+    const decrementQuantity = (productId) => {
+      setQuantities(prev => ({
+        ...prev,
+        [productId]: Math.max(1, prev[productId] - 1)
+      }));
+    };
+
+    const handleAddToCart = (product) => {
+      const quantity = quantities[product.id];
+      addToCart({...product, quantity });
+    }
 
     if (loading) {
       return <div>Loading products...</div>
@@ -39,7 +69,7 @@ function Shop() {
     }
     return (
         <div className={styles.container}>
-            <h2 > Check out our products ... </h2>
+            <h2 > Our products </h2>
             <div className={styles.productsGrid}>
               {products.map(product => (
                   <div 
@@ -51,9 +81,33 @@ function Shop() {
                   alt={product.title}
                   className={styles.productImage}
                   />
-                      <h3>{product.title}</h3>
-                      <p>${product.price}</p>
-                      <button onClick={() => addToCart(product)}>Add product</button>
+                      <h3 className={styles.productTitle}>{product.title}</h3>
+                      <p className={styles.productPrice}>${product.price}</p>
+                      <div className={styles.quantityControl}>
+                        <button 
+                        onClick={() => decrementQuantity(product.id)}
+                        className={styles.quantityButton}
+                        > - 
+                        </button>
+                        <input 
+                        type="number" 
+                        min="1"
+                        value={quantities[product.id]}
+                        onChange={(e) => handleQuantityChange(product.id, e.target.value)}
+                        className={styles.quantityInput}
+                        />
+                        <button 
+                        onClick={() => incrementQuantity(product.id)}
+                        className={styles.quantityButton}
+                        > + 
+                        </button>
+      
+                      </div>
+                      <button 
+                        onClick={() => handleAddToCart(product)}
+                        className={styles.addToCartButton}
+                        > Add to Cart 
+                        </button>
                   </div>
               ))}
             </div>
