@@ -17,6 +17,7 @@ function Home() {
 
                 <div className={styles.feature}>
                     <img src="https://picsum.photos/300/200?2" alt="Quality Products" className={styles.featureImage} />
+                    <h2>Defined by Quality</h2>
                     <p>Curated selection of the best items</p>
                 </div>
 
